@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+   <style>
+      #header{
+          margin: 0;
+          padding: 0;
+          background-color: darkblue;
+      }
+      #tittle_add{
+          color: whitesmoke;
+          margin-left: 38%;
+          font-weight: 800;
+          font-size: 30px;
+          padding: 12px;
+      }
+       #customer_form{
+           margin-top: 20px;
+           margin-left: 15%;
+       }
+       #sub_tittle{
+           margin-top:30px;
+           margin-left:15%;
+           font-weight: 600;
+
+       }
+       .input_field{
+           margin-left: 23px;
+           width: 600px;
+           height: 35px;
+           border-radius: 7px;
+           border-color: blueviolet;
+       }
+       .label{
+           font-weight: 600;
+       }
+       #btn_save{
+           margin-top: 15px;
+           margin-left: 43%;
+           width: 200px;
+           height: 38px;
+           font-weight: 600;
+           margin-bottom: 20px;
+           background-color: navy;
+           color: whitesmoke;
+           border: none;
+           border-radius: 4px;
+       }
+       .table_tittle{
+           margin-left: 17%;
+           padding: 10px;
+           font-weight: 500;
+       }
+       .t_head{
+           color: white;
+           border: none;
+           background-color: blue;
+       }
+
+   </style>
+</head>
+<body>
+<div id="header">
+    <h2 id="tittle_add">Manage Customer Form </h2>
+</div>
+<div id="customer_form">
+<form method="POST" action="Insert">
+   <h3 id="sub_tittle">Add Customer</h3>
+    <label class="label">Customer ID </label><br><input type="text" name="id" class="input_field" /><br />
+    <label class="label">Customer Name </label><br><input type="text" name="name" class="input_field" /><br />
+    <label class="label">Address </label><br><input type="text" name="address" class="input_field" /><br />
+    <input type="submit" value="Save Customer " id="btn_save"/>
+</form>
+</div>
+<ul>
+    <table  width="90%" >
+        <thead  >
+
+            <td class="t_head" ><label class="table_tittle">Customer ID</label></td>
+            <td class="t_head" ><label class="table_tittle">Customer Name</label></td>
+            <td class="t_head" ><label class="table_tittle">Address</label></td>
+            <td class="t_head" ><label class="table_tittle">View</label></td>
+            <td class="t_head" ><label class="table_tittle">Edit</label></td>
+            <td class="t_head" ><label class="table_tittle">Delete</label></td>
+
+        </thead>
+        <tbody>
+        {{ range .Employees }}
+            <tr>
+                <td style="margin-left: 20%">{{ .Id }}</td>
+                <td> {{ .Name }} </td>
+                <td>{{ .Address }} </td>
+                <td><a href="/show?id={{ .Id }}">View</a></td>
+                <td><a href="/edit?id={{ .Id }}">Edit</a></td>
+                <td><a href="/delete?id={{ .Id }}">Delete</a><td>
+            </tr>
+        {{ end }}
+        </tbody>
+    </table>
+
+</ul>
+</body>
+</html>

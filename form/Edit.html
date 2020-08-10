@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit User</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        #edit_data{
+            margin-left: 20%;
+            margin-top: 90px;
+        }
+        .cus{
+            font-weight: 500;
+            font-size: 24px;
+            color: mediumblue;
+        }
+        #btn_edit{
+            background-color: yellow;
+            width: 200px;
+            height: 39px;
+            border-radius: 7px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+<div id="edit_data">
+<h2 style="font-weight: 600;color: rebeccapurple">Update Customer ID of {{ .Id }} </h2><br>
+<label class="cus">Customer Name:  {{ .Name }}  |  </label>
+<label class="cus">Customer Address:   {{ .Address }}</label><br />
+</div>
+<div style="margin-left: 28%">
+<form method="POST" action="update">
+    <label hidden>Customer ID</label><input type="text" name="id" value="{{.Id}}" hidden /><br/>
+    <label>Customer Name </label><br><input type="text" name="name"  /><br />
+    <label> Address </label><br><input type="text" name="address"   /><br /><br>
+    <input type="submit" value="Update User" id="btn_edit" />
+</form><br/>
+</div>
+</body>
+</html>

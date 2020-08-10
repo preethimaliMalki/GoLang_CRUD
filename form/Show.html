@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        #cus_detail{
+            margin-left: 25%;
+            margin-top: 80px;
+        }
+        #cus_tittle{
+            margin-left: 80px;
+            font-size: 35px;
+            font-weight: 600;
+            color: darkblue;
+            margin-bottom: 60px;
+        }
+        .cus_data{
+            font-weight: 500;
+            font-size: 26px;
+            color: rebeccapurple;
+        }
+        .cus_btn{
+            margin-left: 15px;
+            width: 150px;
+            height: 35px;
+            color: whitesmoke;
+            font-weight: bold;
+            border-radius: 6px;
+            background-color: yellowgreen;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+<div id="cus_detail">
+<h2 id="cus_tittle"> Detail of a Customer -> {{ .Id }} </h2>
+<p class="cus_data">Customer Id: {{ .Id }}</p>
+<p class="cus_data">Customer Name: {{ .Name }}</p>
+<p class="cus_data">Customer Address:  {{ .Address }}</p><br />
+</div>
+<div style="margin-left: 30%">
+    <button class="cus_btn"><a href="/edit?id={{ .Id }}">Update</a></button>
+    <button class="cus_btn" style="background-color: red"><a href="/delete?id={{ .Id }}">Delete</a></button>
+
+</div>
+</body>
+</html>
